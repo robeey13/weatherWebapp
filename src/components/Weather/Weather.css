@@ -1,0 +1,209 @@
+.weather {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--gradient-clear);
+  transition: background var(--transition-slow);
+}
+
+.weather__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.weather__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.weather__header-left,
+.weather__header-right {
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.weather__header-right {
+  justify-content: flex-end;
+}
+
+.weather__back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: white;
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-fast);
+}
+
+.weather__back-button:hover {
+  background: var(--glass-bg-heavy);
+  transform: translateX(-2px);
+}
+
+.weather__time {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--glass-border);
+}
+
+.weather__loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  color: white;
+  text-align: center;
+}
+
+.weather__loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.weather__loading p {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.weather__error {
+  max-width: 400px;
+  margin: var(--spacing-2xl) auto;
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.weather__error-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--spacing-md);
+}
+
+.weather__error h3 {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-text-primary);
+}
+
+.weather__error p {
+  margin: 0 0 var(--spacing-lg);
+  color: var(--color-text-secondary);
+}
+
+.weather__error-button {
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background: var(--color-accent);
+  color: white;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  transition: background var(--transition-fast);
+}
+
+.weather__error-button:hover {
+  background: var(--color-accent-hover);
+}
+
+.weather__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.weather__forecasts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+.weather__footer {
+  margin-top: auto;
+  padding: var(--spacing-xl) 0 var(--spacing-md);
+  text-align: center;
+}
+
+.weather__footer p {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.weather__footer a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.weather__footer a:hover {
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .weather__forecasts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .weather__container {
+    padding: var(--spacing-md);
+  }
+  
+  .weather__header {
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+  
+  .weather__header-left,
+  .weather__header-right {
+    order: 1;
+    min-width: auto;
+  }
+  
+  .weather__header > *:nth-child(2) {
+    order: 3;
+    flex: 1 1 100%;
+  }
+  
+  .weather__time {
+    font-size: 0.75rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+@media (max-width: 600px) {
+  .weather__header-left,
+  .weather__header-right {
+    min-width: 44px;
+  }
+}

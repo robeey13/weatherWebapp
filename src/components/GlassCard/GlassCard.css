@@ -1,0 +1,46 @@
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.glass-card--default {
+  padding: var(--spacing-lg);
+}
+
+.glass-card--compact {
+  padding: var(--spacing-md);
+}
+
+.glass-card--large {
+  padding: var(--spacing-xl);
+}
+
+.glass-card--hoverable {
+  cursor: pointer;
+}
+
+.glass-card--hoverable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow-hover);
+  background: var(--glass-bg-heavy);
+}
+
+.glass-card--hoverable:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .glass-card--default {
+    padding: var(--spacing-md);
+  }
+  
+  .glass-card--large {
+    padding: var(--spacing-lg);
+  }
+}

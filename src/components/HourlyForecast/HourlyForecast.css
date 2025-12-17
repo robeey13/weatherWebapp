@@ -1,0 +1,110 @@
+.hourly-forecast {
+  animation: slideUp 0.5s ease 0.1s both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hourly-forecast__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.hourly-forecast__header-icon {
+  color: var(--color-text-secondary);
+}
+
+.hourly-forecast__title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hourly-forecast__scroll {
+  overflow-x: auto;
+  margin: 0 calc(-1 * var(--spacing-lg));
+  padding: 0 var(--spacing-lg);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hourly-forecast__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hourly-forecast__items {
+  display: flex;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-sm) 0;
+}
+
+.hourly-forecast__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-width: 60px;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-lg);
+  transition: background var(--transition-fast);
+}
+
+.hourly-forecast__item--now {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hourly-forecast__time {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.hourly-forecast__item--now .hourly-forecast__time {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.hourly-forecast__icon {
+  font-size: 1.5rem;
+}
+
+.hourly-forecast__precip {
+  font-size: 0.75rem;
+  color: #4fc3f7;
+  font-weight: 500;
+}
+
+.hourly-forecast__temp {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+  .hourly-forecast__scroll {
+    margin: 0 calc(-1 * var(--spacing-md));
+    padding: 0 var(--spacing-md);
+  }
+  
+  .hourly-forecast__items {
+    gap: var(--spacing-md);
+  }
+  
+  .hourly-forecast__item {
+    min-width: 50px;
+  }
+}

@@ -1,0 +1,151 @@
+.daily-forecast {
+  animation: slideUp 0.5s ease 0.2s both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.daily-forecast__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.daily-forecast__header-icon {
+  color: var(--color-text-secondary);
+}
+
+.daily-forecast__title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.daily-forecast__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.daily-forecast__item {
+  display: grid;
+  grid-template-columns: 100px 80px 1fr;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.daily-forecast__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.daily-forecast__item:first-child {
+  padding-top: 0;
+}
+
+.daily-forecast__day {
+  display: flex;
+  flex-direction: column;
+}
+
+.daily-forecast__day-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.daily-forecast__item--today .daily-forecast__day-name {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.daily-forecast__date {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+}
+
+.daily-forecast__weather {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.daily-forecast__icon {
+  font-size: 1.5rem;
+}
+
+.daily-forecast__precip {
+  font-size: 0.75rem;
+  color: #4fc3f7;
+  font-weight: 500;
+}
+
+.daily-forecast__temps {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.daily-forecast__temp-low,
+.daily-forecast__temp-high {
+  font-size: 1rem;
+  min-width: 36px;
+}
+
+.daily-forecast__temp-low {
+  color: var(--color-text-secondary);
+  text-align: right;
+}
+
+.daily-forecast__temp-high {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.daily-forecast__temp-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--glass-border);
+  border-radius: var(--radius-full);
+  position: relative;
+  min-width: 100px;
+}
+
+.daily-forecast__temp-bar-fill {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(to right, #4fc3f7, #f9a825);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+}
+
+@media (max-width: 600px) {
+  .daily-forecast__item {
+    grid-template-columns: 80px 60px 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .daily-forecast__temp-bar {
+    min-width: 60px;
+  }
+  
+  .daily-forecast__temp-low,
+  .daily-forecast__temp-high {
+    font-size: 0.875rem;
+    min-width: 30px;
+  }
+}
